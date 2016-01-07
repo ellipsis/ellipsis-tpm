@@ -1,7 +1,7 @@
 # Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Latest tag][tag-image]][tag-url] [![Gitter chat][gitter-image]][gitter-url]
 Tmux plugin manager
 
-Ellipsis-TPM is a plugin manager for tmux. It uses [Ellipsis][Ellipsis] as a
+Ellipsis-TPM is a plugin manager for tmux. It uses [Ellipsis][ellipsis] as a
 back-end and is a drop in replacement for [TPM][tpm].
 
 ### Development
@@ -16,13 +16,14 @@ By [G. Roggemans][groggemans]
 ## License
 Ellipsis-TPM is open-source software licensed under the [MIT license][mit-license].
 
-[travis-image]: https://img.shields.io/travis/ellipsis/ellipsis.svg
-[travis-url]:   https://travis-ci.org/ellipsis/ellipsis
-[tag-image]:    https://img.shields.io/github/tag/ellipsis/ellipsis.svg
-[tag-url]:      https://github.com/ellipsis/ellipsis/tags
+[travis-image]: https://img.shields.io/travis/ellipsis/ellipsis-tpm.svg
+[travis-url]:   https://travis-ci.org/ellipsis/ellipsis-tpm
+[tag-image]:    https://img.shields.io/github/tag/ellipsis/ellipsis-tpm.svg
+[tag-url]:      https://github.com/ellipsis/ellipsis-tpm/tags
 [gitter-image]: https://badges.gitter.im/ellipsis/ellipsis.svg
 [gitter-url]:   https://gitter.im/ellipsis/ellipsis
 
+[ellipsis]:     https://github.com/ellipsis/ellipsis
 [tpm]:          https://github.com/tmux-plugins/tpm
 
 [style-guide]:  https://google-styleguide.googlecode.com/svn/trunk/shell.xml
