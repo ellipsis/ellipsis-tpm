@@ -9,14 +9,14 @@
 
 pkg.link() {
     # Link ellipsis-tpm in the Ellipsis bin folder
-    ln -s bin/ellipsis-tpm ${PKG_PATH}../../bin/ellipsis-tpm
+    ln -s bin/ellipsis-tpm ${PKG_PATH}/../../bin/ellipsis-tpm
 }
 
 ##############################################################################
 
 pkg.unlink() {
     # Remove ellipsis-tpm link from the Ellipsis bin folder
-    rm ${PKG_PATH}../../bin/ellipsis-tpm
+    rm ${PKG_PATH}/../../bin/ellipsis-tpm
 }
 
 ##############################################################################
