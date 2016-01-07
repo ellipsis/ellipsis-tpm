@@ -9,7 +9,7 @@
 
 pkg.link() {
     # Link ellipsis-tpm in the Ellipsis bin folder
-    ln -s bin/ellipsis-tpm ${PKG_PATH}/../../bin/ellipsis-tpm
+    ln -s ${PKG_PATH}/bin/ellipsis-tpm ${PKG_PATH}/../../bin/ellipsis-tpm
 }
 
 ##############################################################################
