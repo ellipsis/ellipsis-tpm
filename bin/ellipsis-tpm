@@ -7,7 +7,50 @@
 # @license MIT
 ##############################################################################
 
-# @TODO: implementation
-echo "TODO!"
+# Tmux must run!
+if [[ -z $TMUX ]]; then
+    echo "Tmux not running!"
+    exit 1
+fi
+
+##############################################################################
+
+ELLIPSIS_TPM_BIN="${BASH_SOURCE[0]}"
+
+# Unlink script location
+loopcount=0
+while [ $loopcount -lt 1000 ]
+do
+    # Avoid infinit loops
+    let loopcount=loopcount+1
+
+    # If still a link, unlink, else break the loop
+    if [ -L "$ELLIPSIS_TPM_BIN" ]; then
+        ELLIPSIS_TPM_BIN="$(readlink "$ELLIPSIS_TPM_BIN")"
+    else
+        break
+    fi
+done
+
+# Set PATH vars
+ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$ELLIPSIS_TPM_BIN")/../../.." && pwd)}"
+ELLIPSIS_TPM_PATH="$ELLIPSIS_PATH/packages/ellipsis-tpm"
+
+##############################################################################
+
+# Provides load function and global vars
+source "$ELLIPSIS_TPM_PATH/src/init.bash"
+
+load cli
+
+# check for controlling terminal
+if [ -t 1 ]; then
+    cli.run $@
+    exit $?
+else
+    # strip ansi colors
+    cli.run $@ | sed -e 's/\[[^m]*m//g'
+    exit $PIPESTATUS # exit with result of first command in pipe, i.e., cli.run
+fi
 
 ##############################################################################
