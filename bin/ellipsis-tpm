@@ -34,14 +34,16 @@ done
 
 # Set PATH vars
 ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$TPM_BIN")/../../.." && pwd)}"
+ELLIPSIS_SRC="$ELLIPSIS_PATH/src"
 TPM_PATH="$ELLIPSIS_PATH/packages/ellipsis-tpm"
+TPM_SRC="$TPM_PATH/src"
 
 ##############################################################################
 
 # Provides load function and global vars
-source "$TPM_PATH/src/init.bash"
+source "$TPM_SRC/init.bash"
 
-load cli
+load cli "$TPM_SRC"
 
 # check for controlling terminal
 if [ -t 1 ]; then
