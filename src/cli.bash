@@ -8,6 +8,7 @@
 ##############################################################################
 
 load tpm
+load vars
 
 ##############################################################################
 
@@ -31,10 +32,10 @@ Usage: ellipsis-tpm <command>
 # prints ellipsis-tpm version
 cli.version() {
     local cwd="$(pwd)"
-    cd $ELLIPSIS_TPM_PATH
+    cd $TPM_PATH
 
     local sha1=$(git rev-parse --short HEAD)
-    echo -e "\033[1mv$ELLIPSIS_TPM_VERSION\033[0m ($sha1)"
+    echo -e "\033[1mv$TPM_VERSION\033[0m ($sha1)"
 
     cd $cwd
 }

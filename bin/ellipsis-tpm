@@ -15,7 +15,7 @@ fi
 
 ##############################################################################
 
-ELLIPSIS_TPM_BIN="${BASH_SOURCE[0]}"
+TPM_BIN="${BASH_SOURCE[0]}"
 
 # Unlink script location
 loopcount=0
@@ -25,21 +25,21 @@ do
     let loopcount=loopcount+1
 
     # If still a link, unlink, else break the loop
-    if [ -L "$ELLIPSIS_TPM_BIN" ]; then
-        ELLIPSIS_TPM_BIN="$(readlink "$ELLIPSIS_TPM_BIN")"
+    if [ -L "$TPM_BIN" ]; then
+        TPM_BIN="$(readlink "$TPM_BIN")"
     else
         break
     fi
 done
 
 # Set PATH vars
-ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$ELLIPSIS_TPM_BIN")/../../.." && pwd)}"
-ELLIPSIS_TPM_PATH="$ELLIPSIS_PATH/packages/ellipsis-tpm"
+ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$TPM_BIN")/../../.." && pwd)}"
+TPM_PATH="$ELLIPSIS_PATH/packages/ellipsis-tpm"
 
 ##############################################################################
 
 # Provides load function and global vars
-source "$ELLIPSIS_TPM_PATH/src/init.bash"
+source "$TPM_PATH/src/init.bash"
 
 load cli
 

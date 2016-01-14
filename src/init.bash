@@ -19,7 +19,7 @@ load() {
         # Mark this module as loaded, prevent infinite recursion, ya know...
         eval "$loaded=1"
 
-        local path=${2:-"$ELLIPSIS_TPM_PATH/src"}
+        local path=${2:-"$TPM_PATH/src"}
         source $path/$1.bash
     fi
 }
@@ -28,6 +28,6 @@ load() {
 load version
 
 # Set flag that we've been sourced already.
-ELLIPSIS_TPM_INIT=1
+TPM_INIT=1
 
 ##############################################################################
