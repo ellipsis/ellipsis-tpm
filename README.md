@@ -1,6 +1,8 @@
 # Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Latest tag][tag-image]][tag-url] [![Gitter chat][gitter-image]][gitter-url]
 Tmux plugin manager
 
+**This project is in an early alpha stage! Use at own risk!**
+
 Ellipsis-TPM is an [Ellipsis][ellipsis] package to manage tmux plugins. It can
 be used as a drop in replacement for [TPM][tpm].
 
