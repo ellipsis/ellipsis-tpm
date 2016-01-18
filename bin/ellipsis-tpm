@@ -8,7 +8,7 @@
 ##############################################################################
 
 # Tmux must run!
-if [[ -z $TMUX ]]; then
+if [[ -z $TMUX ]] && [[ -z $TPM_NOTMUX ]]; then
     echo "Tmux not running!"
     exit 1
 fi
