@@ -2,7 +2,6 @@ language: bash
 script: make test
 env:
   - TEST_OPTS=--tap
-  - TPM_NOTMUX=1
 cache:
   directories:
     - deps

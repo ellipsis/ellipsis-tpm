@@ -9,10 +9,11 @@ tag:
 	@git tag v$(version)
 
 test: deps/bats deps/ellipsis
-	deps/bats/bin/bats tests $(TEST_OPTS)
+	@export TPM_NOTMUX=1;\
+		deps/bats/bin/bats tests $(TEST_OPTS)
 
 deps/ellipsis:
-	export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
+	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
 		curl -Ls ellipsis.sh | sh
 
 
