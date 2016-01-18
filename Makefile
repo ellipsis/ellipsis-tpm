@@ -1,5 +1,8 @@
 # ellipsis-tpm - shell script package manager
 
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
+
 all: test
 
 tag:
@@ -8,8 +11,13 @@ tag:
 	@git commit -m v$(version)
 	@git tag v$(version)
 
-test: deps/bats
-	@echo "TODO!"
+test: deps/bats deps/ellipsis
+	deps/bats/bin/bats tests $(TEST_OPTS)
+
+deps/ellipsis:
+	export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
+		curl -Ls ellipsis.sh | sh
+
 
 deps/bats:
 	@mkdir -p deps
