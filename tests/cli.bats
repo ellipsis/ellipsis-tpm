@@ -17,4 +17,22 @@ load _helper
     [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
+@test "cli.run with invalid command prints usage" {
+  run ellipsis-tpm invalid_command
+  [ "$status" -eq 1 ]
+  [ "${lines[1]}" = "Usage: ellipsis-tpm <command>" ]
+}
+
+@test "cli.run --help prints usage" {
+  run ellipsis-tpm --help
+  [ "$status" -eq 0 ]
+  [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
+}
+
+@test "cli.run --version prints version" {
+  run ellipsis-tpm --version
+  [ "$status" -eq 0 ]
+  [ $(expr "$output" : "v[0-9][0-9.]*") -ne 0 ]
+}
+
 ##############################################################################
