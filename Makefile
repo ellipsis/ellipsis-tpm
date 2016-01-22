@@ -9,8 +9,7 @@ tag:
 	@git tag v$(version)
 
 test: deps/bats deps/ellipsis
-	@export TPM_NOTMUX=1;\
-		export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
+	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
 		deps/bats/bin/bats tests $(TEST_OPTS)
 
 deps/ellipsis:
