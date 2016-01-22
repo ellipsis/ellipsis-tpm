@@ -7,7 +7,7 @@ before_install:
   - git checkout 2.0
   - sh autogen.sh
   - ./configure && make && sudo make install
-  - cd ~/ellipsis-tpm
+  - cd ~/ellipsis/ellipsis-tpm
   - export TPM_NOTMUX=1
   - tmux new -d
 script: make test
