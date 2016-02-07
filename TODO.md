@@ -6,3 +6,4 @@
 - Capability to run without tmux running (limited mode)
 - Update README
 - Improve ellipsis integration (share more code etc)
+- Add more tests
