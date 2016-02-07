@@ -7,13 +7,15 @@
 # @license MIT
 ##############################################################################
 
+load msg "$TPM_SRC" # Use tmux aware msg functions
+load log "$TPM_SRC" # Use updated log functions
 load tpm "$TPM_SRC"
 
 ##############################################################################
 
 # prints usage for ellipsis-tpm
 cli.usage() {
-    cat <<-EOF
+msg.print "\
 Usage: ellipsis-tpm <command>
   Options:
     -h, --help     show help
@@ -22,8 +24,7 @@ Usage: ellipsis-tpm <command>
   Commands:
     install    install new plugin
     update     update installed plugin
-    clean      cleanup plugins
-	EOF
+    clean      cleanup plugins"
 }
 
 ##############################################################################
@@ -34,7 +35,7 @@ cli.version() {
     cd $TPM_PATH
 
     local sha1=$(git rev-parse --short HEAD)
-    echo -e "\033[1mv$TPM_VERSION\033[0m ($sha1)"
+    msg.print "\033[1mv$TPM_VERSION\033[0m ($sha1)"
 
     cd $cwd
 }
@@ -44,6 +45,10 @@ cli.version() {
 # run ellipsis-tpm
 cli.run() {
     case "$1" in
+        tmux)
+            TMUX_ECHO=1
+            cli.run "${@:2}"
+            ;;
         run)
             tpm.run
             ;;
@@ -64,7 +69,7 @@ cli.run() {
             ;;
         *)
             if [ $# -gt 0 ]; then
-                echo ellipsis-tpm: invalid command -- $1
+                msg.print ellipsis-tpm: invalid command -- $1
             fi
             cli.usage
             return 1

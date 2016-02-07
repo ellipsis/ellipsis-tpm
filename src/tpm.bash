@@ -71,9 +71,9 @@ tpm.list_clean() {
 
 tpm.run() {
     # Set key bindings
-    tmux.set_key_binding "I" "$TPM_BIN install"
-    tmux.set_key_binding "U" "$TPM_BIN update"
-    tmux.set_key_binding "M-u" "$TPM_BIN clean"
+    tmux.set_key_binding "I" "$TPM_BIN tmux install"
+    tmux.set_key_binding "U" "$TPM_BIN tmux update"
+    tmux.set_key_binding "M-u" "$TPM_BIN tmux clean"
 
     # source plugins
     for plugin in $(tpm.list_installed_raw); do
@@ -127,12 +127,22 @@ tpm.install() {
 
         PKG_PATH="$TPM_PLUGIN_PATH/$PKG_NAME"
 
+        msg.bold "Installing $PKG_NAME"
         if [[ -d $PKG_PATH ]]; then
-            echo "$PKG_NAME already installed!"
-        elif [[ -z "$PKG_BRANCH" ]]; then
-            git.clone "$PKG_URL" "$PKG_PATH"
+            msg.print "Already installed!"
         else
-            git.clone "$PKG_URL" "$PKG_PATH" --branch "$PKG_BRANCH"
+            if [[ -z "$PKG_BRANCH" ]]; then
+                git.clone "$PKG_URL" "$PKG_PATH"
+            else
+                git.clone "$PKG_URL" "$PKG_PATH" --branch "$PKG_BRANCH"
+            fi
+
+            if [ "$?" -ne 0 ]; then
+                log.fail "Could not install $PKG_NAME"
+                exit "$?"
+            else
+                log.ok "$PKG_NAME installed"
+            fi
         fi
     done
 }
@@ -143,7 +153,7 @@ tpm.update() {
         if [ -d "$TPM_PLUGIN_PATH/$pkg" ]; then
             local cwd="$(pwd)"
             cd "$TPM_PLUGIN_PATH/$pkg"
-            echo "Updating $pkg"
+            msg.bold "Updating $pkg"
             git pull
             cd $cwd
         fi
@@ -155,10 +165,10 @@ tpm.update() {
 tpm.clean() {
     for pkg in ${@:-$(tpm.list_installed)}; do
         if [[ "$(tpm.list_plugins)" =~ "$pkg" ]]; then
-            echo "$pkg ok!"
+            msg.print "$pkg ok!"
             continue
         else
-            echo "Removing $pkg"
+            msg.print "Removing $pkg"
             rm -rf "$TPM_PLUGIN_PATH/$pkg"
         fi
     done
