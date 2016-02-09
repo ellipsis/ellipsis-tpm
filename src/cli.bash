@@ -10,6 +10,7 @@
 load msg "$TPM_SRC" # Use tmux aware msg functions
 load log "$TPM_SRC" # Use updated log functions
 load tpm "$TPM_SRC"
+load tmux "$TPM_SRC"
 
 ##############################################################################
 
@@ -46,19 +47,22 @@ cli.version() {
 cli.run() {
     case "$1" in
         tmux)
-            TMUX_ECHO=1
+            TPM_TMUX_ECHO=1
             cli.run "${@:2}"
             ;;
         run)
+            tmux.or_fail
             tpm.run
             ;;
         install|in)
+            tmux.or_fail
             tpm.install "${@:2}"
             ;;
         update|up)
             tpm.update "${@:2}"
             ;;
         clean)
+            tmux.or_fail
             tpm.clean
             ;;
         help|--help|-h)

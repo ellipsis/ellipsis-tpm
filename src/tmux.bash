@@ -6,6 +6,16 @@
 # @license MIT
 ##############################################################################
 
+# Fail if tmux is nog running
+tmux.or_fail() {
+    if [[ -z $TMUX ]] && [[ -z $TPM_NOTMUX ]]; then
+        log.fail "Tmux not running!"
+        exit 1
+    fi
+}
+
+##############################################################################
+
 # Echo in tmux "window"
 tmux.echo() {
     local message="$@"

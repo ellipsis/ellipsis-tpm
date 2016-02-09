@@ -11,7 +11,7 @@ load utils
 ##############################################################################
 
 msg.print() {
-    if [ -n "$TMUX_ECHO" ]; then
+    if [ -n "$TPM_TMUX_ECHO" ]; then
         tmux.echo "$(msg.log "$@")"
     elif [ -t 1 ]; then
         echo -e "$@"
