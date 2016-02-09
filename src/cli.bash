@@ -49,20 +49,18 @@ cli.run() {
         tmux)
             TPM_TMUX_ECHO=1
             cli.run "${@:2}"
+            tmux.echo "Finished, you can now exit copy mode! (Enter/ESC)"
             ;;
         run)
-            tmux.or_fail
             tpm.run
             ;;
         install|in)
-            tmux.or_fail
             tpm.install "${@:2}"
             ;;
         update|up)
             tpm.update "${@:2}"
             ;;
         clean)
-            tmux.or_fail
             tpm.clean
             ;;
         help|--help|-h)

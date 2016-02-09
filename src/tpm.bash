@@ -70,6 +70,8 @@ tpm.list_clean() {
 ##############################################################################
 
 tpm.run() {
+    tmux.or_fail
+
     # Set key bindings
     tmux.set_key_binding "I" "$TPM_BIN tmux install"
     tmux.set_key_binding "U" "$TPM_BIN tmux update"
@@ -87,6 +89,8 @@ tpm.run() {
 ##############################################################################
 
 tpm.install() {
+    tmux.or_fail
+
     for package in ${@:-$(tmux.list_plugins)}; do
 
         # split branch from package name (if possible)
@@ -138,8 +142,7 @@ tpm.install() {
             fi
 
             if [ "$?" -ne 0 ]; then
-                log.fail "Could not install $PKG_NAME"
-                exit "$?"
+                log.error "Could not install $PKG_NAME"
             else
                 log.ok "$PKG_NAME installed"
             fi
@@ -153,8 +156,30 @@ tpm.update() {
         if [ -d "$TPM_PLUGIN_PATH/$pkg" ]; then
             local cwd="$(pwd)"
             cd "$TPM_PLUGIN_PATH/$pkg"
+
             msg.bold "Updating $pkg"
-            git pull
+
+            local needs_update="$(git pull --dry-run 2>&1)"
+            if [ "$?" -ne 0 ]; then
+                log.error "Could not get state of $pkg"
+            else
+                # Only log if changes should be made
+                if [ -z "$needs_update" ]; then
+                    msg.print "Already up to date!"
+                else
+                    if [ -z "$TPM_TMUX_ECHO" ]; then
+                        git pull
+                    else
+                        git pull > /dev/null 2>&1
+                    fi
+
+                    if [ "$?" -ne 0 ]; then
+                        log.error "Could not update $pkg"
+                    else
+                        log.ok "$pkg updated"
+                    fi
+                fi
+            fi
             cd $cwd
         fi
     done
@@ -163,13 +188,21 @@ tpm.update() {
 ##############################################################################
 
 tpm.clean() {
+    tmux.or_fail
+
     for pkg in ${@:-$(tpm.list_installed)}; do
+        msg.bold "$pkg"
         if [[ "$(tpm.list_plugins)" =~ "$pkg" ]]; then
-            msg.print "$pkg ok!"
+            msg.print "Ok!"
             continue
         else
-            msg.print "Removing $pkg"
             rm -rf "$TPM_PLUGIN_PATH/$pkg"
+
+            if [ "$?" -ne 0 ]; then
+                log.error "Could not uninstall $pkg"
+            else
+                log.ok "$pkg uninstalled"
+            fi
         fi
     done
 }
