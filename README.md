@@ -4,7 +4,10 @@ Tmux plugin manager
 **This project is in an early alpha stage! Use at own risk!**
 
 Ellipsis-TPM is an [Ellipsis][ellipsis] package to manage tmux plugins. It can
-be used as a drop in replacement for [TPM][tpm].
+be used as a drop in replacement for [TPM][tpm]*\**.
+
+
+*\*`@tpm_plugins` is no longer supported!*
 
 ### Requirements
 - [Ellipsis][ellipsis]

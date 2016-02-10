@@ -89,8 +89,6 @@ tpm.run() {
 ##############################################################################
 
 tpm.install() {
-    tmux.or_fail
-
     for package in ${@:-$(tmux.list_plugins)}; do
 
         # split branch from package name (if possible)
@@ -188,8 +186,6 @@ tpm.update() {
 ##############################################################################
 
 tpm.clean() {
-    tmux.or_fail
-
     for pkg in ${@:-$(tpm.list_installed)}; do
         msg.bold "$pkg"
         if [[ "$(tpm.list_plugins)" =~ "$pkg" ]]; then

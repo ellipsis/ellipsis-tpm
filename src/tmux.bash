@@ -78,12 +78,6 @@ tmux.manual_expansion() {
 
 # Get list of plugins from config files
 tmux.list_plugins() {
-    # lists plugins from @tpm_plugins option
-    local tpm_plugins="$(tmux start-server\; show-option -gqv @tpm_plugins)"
-    if [[ -n $tpm_plugins ]]; then
-        echo "$tpm_plugins"
-    fi
-
     # read set -g @plugin "tmux-plugins/tmux-example-plugin" entries
     tmux.conf_contents "full" |\
         awk '/^ *set(-option)? +-g +@plugin/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'

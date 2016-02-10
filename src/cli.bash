@@ -47,8 +47,11 @@ cli.version() {
 cli.run() {
     case "$1" in
         tmux)
+            tmux.or_fail
             TPM_TMUX_ECHO=1
+
             cli.run "${@:2}"
+
             tmux.echo "Finished, you can now exit copy mode! (Enter/ESC)"
             ;;
         run)
