@@ -29,11 +29,13 @@ tmux.echo() {
 ##############################################################################
 
 # Get tmux option
-tmux.get_option() {
+tmux.get_tmux_option() {
     local option="$1"
     local default_value="$2"
+
     local option_value="$(tmux show-option -gqv "$option")"
-    if [[ -z $option_value ]]; then
+
+    if [ -z "$option_value" ]; then
         echo "$default_value"
     else
         echo "$option_value"
@@ -89,9 +91,30 @@ tmux.manual_expansion() {
 
 # Get list of plugins from config files
 tmux.list_plugins() {
-    # read set -g @plugin "tmux-plugins/tmux-example-plugin" entries
-    tmux.conf_contents "full" |\
-        awk '/^ *set(-option)? +-g +@plugin/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+    tmux.get_conf_option "@plugin"
+}
+
+##############################################################################
+
+# Get option from config files
+tmux.get_conf_option() {
+    local option="$1"
+    local default_value="$2"
+
+    # the awk returns wrong results if option is empty
+    if [ -z "$option" ]; then
+        log.fail "Invalid config option needed"
+        exit 1
+    fi
+
+    local awk_opt='/^ *set(-option)? +-g +'"$option"'/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+    local option_value="$(tmux.conf_contents "full" | awk "$awk_opt")"
+
+    if [ -z "$option_value" ]; then
+        echo "$default_value"
+    else
+        echo "$option_value"
+    fi
 }
 
 ##############################################################################
