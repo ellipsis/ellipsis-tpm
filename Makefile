@@ -13,6 +13,7 @@ test: deps/bats deps/ellipsis
 		deps/bats/bin/bats tests $(TEST_OPTS)
 
 deps/ellipsis:
+	@mkdir -p deps
 	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
 		curl -Ls ellipsis.sh | sh
 
