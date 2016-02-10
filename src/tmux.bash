@@ -6,6 +6,10 @@
 # @license MIT
 ##############################################################################
 
+load vars "$TPM_SRC"
+
+##############################################################################
+
 # Fail if tmux is nog running
 tmux.or_fail() {
     if [[ -z $TMUX ]] && [[ -z $TPM_NOTMUX ]]; then
@@ -47,9 +51,16 @@ tmux.set_key_binding() {
 
 # Get content of tmux config files
 tmux.conf_contents() {
-    cat /etc/tmux.conf ~/.tmux.conf 2>/dev/null
+    # Allow the usage of '~/'
+    local files="${TPM_CONF//~\//$HOME\/}"
+    files=(${files//:/ })
+
+    for file in "${files[@]}"
+    do
+        cat "$file" 2>/dev/null
+    done
+
     if [ "$1" == "full" ]; then # also output content from sourced files
-        local file
         for file in $(tmux.sourced_files); do
             cat $(tmux.manual_expansion "$file") 2>/dev/null
         done

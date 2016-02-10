@@ -12,6 +12,9 @@ load tmux "$TPM_SRC"
 ##############################################################################
 
 # @TODO: check if user has provided alternative dir
+
+TPM_CONF="${TPM_CONF:-"/etc/tmux.conf:~/.tmux.conf"}"
+
 TPM_PLUGIN_PATH="$HOME/.tmux/plugins"
 
 ##############################################################################
