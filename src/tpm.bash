@@ -73,9 +73,9 @@ tpm.run() {
     tmux.or_fail
 
     # Set key bindings
-    tmux.set_key_binding "I" "$TPM_BIN tmux install"
-    tmux.set_key_binding "U" "$TPM_BIN tmux update"
-    tmux.set_key_binding "M-u" "$TPM_BIN tmux clean"
+    tmux.set_key_binding "$TPM_INSTALL_KEY" "$TPM_BIN tmux install"
+    tmux.set_key_binding "$TPM_UPDATE_KEY" "$TPM_BIN tmux update"
+    tmux.set_key_binding "$TPM_CLEAN_KEY" "$TPM_BIN tmux clean"
 
     # source plugins
     for plugin in $(tpm.list_installed_raw); do
