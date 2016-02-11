@@ -18,11 +18,17 @@ TPM_CONF="${TPM_CONF:-"/etc/tmux.conf:~/.tmux.conf"}"
 
 # Keep compatibility with TPM
 local tmux_plugin_manager_path="$(tmux.get_conf_option "TMUX_PLUGIN_MANAGER_PATH" "$HOME/.tmux/plugins")"
-tmux_plugin_manager_path="${TPM_PLUGIN_PATH//~\//$HOME\/}"
+tmux_plugin_manager_path="${tmux_plugin_manager_path//~\//$HOME\/}"
 
 local tpm_plugin_path="$(tmux.get_conf_option "@tpm_plugin_path" "$tmux_plugin_manager_path")"
 TPM_PLUGIN_PATH="${TPM_PLUGIN_PATH:-$tpm_plugin_path}"
 TPM_PLUGIN_PATH="${TPM_PLUGIN_PATH//~\//$HOME\/}"
+
+# This shouldn't be necesary (extra protection if the above is altered)
+if [ -z "$TPM_PLUGIN_PATH" ]; then
+    log.fail "Plugin path noth valid!"
+    exit 1
+fi
 
 ##############################################################################
 
