@@ -59,7 +59,9 @@ tmux.conf_contents() {
 
     for file in "${files[@]}"
     do
-        cat "$file" 2>/dev/null
+        if [ -f "$file" ]; then
+            cat "$file"
+        fi
     done
 
     if [ "$1" == "full" ]; then # also output content from sourced files
@@ -67,7 +69,6 @@ tmux.conf_contents() {
             cat $(tmux.manual_expansion "$file") 2>/dev/null
         done
     fi
-
 }
 
 ##############################################################################
