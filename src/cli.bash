@@ -75,7 +75,7 @@ cli.run() {
             ;;
         *)
             if [ $# -gt 0 ]; then
-                msg.print ellipsis-tpm: invalid command -- $1
+                msg.print "ellipsis-tpm: invalid command -- $1"
             fi
             cli.usage
             return 1
