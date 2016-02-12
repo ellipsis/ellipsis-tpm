@@ -55,6 +55,7 @@ cli.run() {
             tmux.echo "Finished, you can now exit copy mode! (Enter/ESC)"
             ;;
         run)
+            tmux.or_fail
             tpm.run
             ;;
         install|in)
