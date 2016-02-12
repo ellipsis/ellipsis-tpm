@@ -60,13 +60,15 @@ load _helper
 }
 
 @test "cli.run tmux fails if tmux is not running" {
-  TMUX="" run ellipsis-tpm tmux
+  TMUX=""\
+  run ellipsis-tpm tmux
   [ "$status" -eq 1 ]
   [ "${lines[0]}" = "[FAIL] Tmux not running!" ]
 }
 
 @test "cli.run run fails if tmux is not running" {
-  TMUX="" run ellipsis-tpm run
+  TMUX=""\
+  run ellipsis-tpm run
   [ "$status" -eq 1 ]
   [ "${lines[0]}" = "[FAIL] Tmux not running!" ]
 }
