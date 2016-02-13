@@ -13,7 +13,7 @@ load utils
 msg.print() {
     if [ -n "$TPM_TMUX_ECHO" ]; then
         tmux.echo "$(msg.log "$@")"
-    elif [ -t 1 ]; then
+    elif [ -t 1 ] || [ -n "$TPM_FORCE_COLOR" ]; then
         echo -e "$@"
     else
         msg.log "$@"
