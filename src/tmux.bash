@@ -54,7 +54,7 @@ tmux.set_key_binding() {
 # Get content of tmux config files
 tmux.conf_contents() {
     # Allow the usage of '~/'
-    local files="${TPM_CONF//~\//$HOME\/}"
+    local files=$(tmux.manual_expansion "$TPM_CONF")
     files=(${files//:/ })
 
     for file in "${files[@]}"
@@ -84,9 +84,8 @@ tmux.sourced_files() {
 
 # Expand path
 tmux.manual_expansion() {
-    local path="$1"
-    local expanded_tilde="${path/#\~/$HOME}"
-    echo "${expanded_tilde/#\$HOME/$HOME}"
+    local path="${1//~\//$HOME\/}"
+    echo "$path"
 }
 
 ##############################################################################
