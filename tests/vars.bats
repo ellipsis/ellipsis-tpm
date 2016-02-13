@@ -13,23 +13,23 @@ load vars "$TPM_SRC"
 ##############################################################################
 
 @test "TPM_CONF is set and non empty" {
-  skip "TODO"
+  [ -n "$TPM_CONF" ]
 }
 
 @test "TPM_PLUGIN_PATH is set and non empty" {
-  skip "TODO"
+  [ -n "$TPM_PLUGIN_PATH" ]
 }
 
 @test "TPM_INSTALL_KEY is set and non empty" {
-  skip "TODO"
+  [ -n "$TPM_INSTALL_KEY" ]
 }
 
 @test "TPM_UPDATE_KEY is set and non empty" {
-  skip "TODO"
+  [ -n "$TPM_UPDATE_KEY" ]
 }
 
 @test "TPM_CLEAN_KEY is set and non empty" {
-  skip "TODO"
+  [ -n "$TPM_CLEAN_KEY" ]
 }
 
 ##############################################################################
