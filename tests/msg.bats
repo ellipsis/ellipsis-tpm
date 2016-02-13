@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 ##############################################################################
-# @file tmux.bats
+# @file msg.bats
 # @date February, 2016
 # @author G. Roggemans <g.roggemans@grog.be>
 # @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
@@ -8,39 +8,23 @@
 ##############################################################################
 
 load _helper
-load tmux "$TPM_SRC"
+load msg "$TPM_SRC"
 
 ##############################################################################
 
-@test "tmux.or_fail fails if tmux is not running" {
+@test "msg.print shows message" {
   skip "TODO"
 }
 
-@test "tmux.echo prints a message in tmux copy mode" {
+@test "msg.print shows message without colors" {
   skip "TODO"
 }
 
-@test "tmux.set_key_binding adds a key binding" {
+@test "msg.bold shows bold message" {
   skip "TODO"
 }
 
-@test "tmux.conf_contents returns config contents" {
-  skip "TODO"
-}
-
-@test "tmux.conf_contents full returns all config contents" {
-  skip "TODO"
-}
-
-@test "tmux.sourced_files lists all sourced files" {
-  skip "TODO"
-}
-
-@test "tmux.manual_expansion expands '~/' to '$HOME'" {
-  skip "TODO"
-}
-
-@test "tmux.get_conf_option returns config option values" {
+@test "msg.dim shows dim message" {
   skip "TODO"
 }
 
