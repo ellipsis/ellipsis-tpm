@@ -41,81 +41,81 @@ in_log() {
 }
 
 @test "log.ok logs success" {
-    run log.ok "Test success message"
-    [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "[ ok ] Test success message" ]
-}
-
-@test "log.ok logs success (colored)" {
     TPM_FORCE_COLOR=1\
     run log.ok "Test success message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[32m ok [0m] Test success message" ]
 }
 
-@test "log.info logs info" {
-    run log.info "Test info message"
+@test "log.ok logs success colorless (non interactive)" {
+    run log.ok "Test success message"
     [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "[info] Test info message" ]
+    [ "${lines[0]}" = "[ ok ] Test success message" ]
 }
 
-@test "log.info logs info (colored)" {
+@test "log.info logs info" {
     TPM_FORCE_COLOR=1\
     run log.info "Test info message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[36minfo[0m] Test info message" ]
 }
 
-@test "log.warn logs warning" {
-    run log.warn "Test warning message"
+@test "log.info logs info colorless (non interactive)" {
+    run log.info "Test info message"
     [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "[warn] Test warning message" ]
+    [ "${lines[0]}" = "[info] Test info message" ]
 }
 
-@test "log.warn logs warning (colored)" {
+@test "log.warn logs warning" {
     TPM_FORCE_COLOR=1\
     run log.warn "Test warning message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[33mwarn[0m] Test warning message" ]
 }
 
-@test "log.error logs error" {
-    run log.error "Test error message"
+@test "log.warn logs warning colorless (non interactive)" {
+    run log.warn "Test warning message"
     [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "[ err] Test error message" ]
+    [ "${lines[0]}" = "[warn] Test warning message" ]
 }
 
-@test "log.error logs error (colored)" {
+@test "log.error logs error" {
     TPM_FORCE_COLOR=1\
     run log.error "Test error message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[31m err[0m] Test error message" ]
 }
 
-@test "log.fail logs failure" {
-    run log.fail "Test fail message"
+@test "log.error logs error colorless (non interactive)" {
+    run log.error "Test error message"
     [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "[FAIL] Test fail message" ]
+    [ "${lines[0]}" = "[ err] Test error message" ]
 }
 
-@test "log.fail logs failure (colored)" {
+@test "log.fail logs failure" {
     TPM_FORCE_COLOR=1\
     run log.fail "Test fail message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[31mFAIL[0m] Test fail message" ]
 }
 
-@test "log.dim shows dimmed message" {
-    run log.dim "Test dim message"
+@test "log.fail logs failure colorless (non interactive)" {
+    run log.fail "Test fail message"
     [ "$status" -eq 0 ]
-    [ "${lines[0]}" = "Test dim message" ]
+    [ "${lines[0]}" = "[FAIL] Test fail message" ]
 }
 
-@test "log.dim shows dimmed message (colored)" {
+@test "log.dim shows dimmed message" {
     TPM_FORCE_COLOR=1\
     run log.dim "Test dim message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[90mTest dim message[0m" ]
+}
+
+@test "log.dim shows dimmed message colorless (non interactive)" {
+    run log.dim "Test dim message"
+    [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "Test dim message" ]
 }
 
 ##############################################################################
