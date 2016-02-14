@@ -54,11 +54,11 @@ tmux.set_key_binding() {
 # Get content of tmux config files
 tmux.conf_contents() {
     # Allow the usage of '~/'
-    local files=$(tmux.manual_expansion "$TPM_CONF")
-    files=(${files//:/ })
+    local files=(${TPM_CONF//:/ })
 
     for file in "${files[@]}"
     do
+        file="$(tmux.manual_expansion "$file")"
         if [ -f "$file" ]; then
             cat "$file"
         fi
@@ -84,8 +84,7 @@ tmux.sourced_files() {
 
 # Expand path
 tmux.manual_expansion() {
-    local path="${1//~\//$HOME\/}"
-    echo "$path"
+    echo "${1/\~/$HOME}"
 }
 
 ##############################################################################
