@@ -6,8 +6,9 @@
 # @license MIT
 ##############################################################################
 
-    set -g @plugin 'ellipsis/dot-test'
-    set -g @plugin 'ellipsis/dot-test2'
+    set -g @plugin 'grog/tmux-plugin-cpu'
+    set -g @plugin 'grog/tmux-plugin-mem'
+    set -g @plugin 'grog/tmux-plugin-battery'
 
 ##############################################################################
 # vim: ft=tmux

@@ -88,7 +88,7 @@ teardown() {
 }
 
 @test "tmux.get_conf_option returns config option values" {
-    TPM_CONF="$TESTS_DIR/conf/install.tmux"\
+    TPM_CONF="$TESTS_DIR/conf/conf.tmux"\
     run tmux.get_conf_option "@plugin"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "grog/tmux-plugin-cpu" ]
