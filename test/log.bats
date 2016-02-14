@@ -13,12 +13,12 @@ load log "$TPM_SRC"
 ##############################################################################
 
 setup() {
-    mkdir -p $TESTS_DIR/tmp
-    export ELLIPSIS_LOGFILE=$TESTS_DIR/tmp/log
+    mkdir -p /tmp/ellipsis-tpm-test
+    export ELLIPSIS_LOGFILE=/tmp/ellipsis-tpm-test/log
 }
 
 teardown() {
-    rm -rf $TESTS_DIR/tmp
+    rm -rf /tmp/ellipsis-tpm-test
 }
 
 ##############################################################################
