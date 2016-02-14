@@ -41,7 +41,7 @@ in_log() {
 }
 
 @test "log.ok logs success" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.ok "Test success message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[32m ok [0m] Test success message" ]
@@ -54,7 +54,7 @@ in_log() {
 }
 
 @test "log.info logs info" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.info "Test info message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[36minfo[0m] Test info message" ]
@@ -67,7 +67,7 @@ in_log() {
 }
 
 @test "log.warn logs warning" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.warn "Test warning message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[33mwarn[0m] Test warning message" ]
@@ -80,7 +80,7 @@ in_log() {
 }
 
 @test "log.error logs error" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.error "Test error message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[31m err[0m] Test error message" ]
@@ -93,7 +93,7 @@ in_log() {
 }
 
 @test "log.fail logs failure" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.fail "Test fail message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[[31mFAIL[0m] Test fail message" ]
@@ -106,7 +106,7 @@ in_log() {
 }
 
 @test "log.dim shows dimmed message" {
-    TPM_FORCE_COLOR=1\
+    ELLIPSIS_FORCE_COLOR=1\
     run log.dim "Test dim message"
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "[90mTest dim message[0m" ]
