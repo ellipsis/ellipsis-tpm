@@ -1,14 +1,15 @@
 language: bash
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y libevent-dev libncurses-dev
-  - git clone https://github.com/tmux/tmux.git
-  - cd tmux
-  - git checkout 2.0
-  - sh autogen.sh
-  - ./configure && make && sudo make install
-  - cd $TRAVIS_BUILD_DIR
-  - tmux new -d
+# Not needed for now, should speedup tests
+#before_install:
+  #- sudo apt-get update
+  #- sudo apt-get install -y libevent-dev libncurses-dev
+  #- git clone https://github.com/tmux/tmux.git
+  #- cd tmux
+  #- git checkout 2.0
+  #- sh autogen.sh
+  #- ./configure && make && sudo make install
+  #- cd $TRAVIS_BUILD_DIR
+  #- tmux new -d
 script: make test
 env:
   - TEST_OPTS=--tap
