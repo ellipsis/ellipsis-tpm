@@ -19,10 +19,10 @@ be used as replacement for [TPM][tpm].
 
 ```shell
     # With ellipsis installed
-    ellipsis install https://github.com/ellipsis/ellipsis-tpm
+    ellipsis install ellipsis-tpm
 
     # Without ellipsis installed
-    curl -Ls ellipsis.sh | PACKAGES='https://github.com/ellipsis/ellipsis-tpm' sh
+    curl -Ls ellipsis.sh | PACKAGES='ellipsis-tpm' sh
 ```
 
 ### Usage
