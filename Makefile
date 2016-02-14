@@ -10,7 +10,7 @@ tag:
 
 test: deps/bats deps/ellipsis
 	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
-		deps/bats/bin/bats tests $(TEST_OPTS)
+		deps/bats/bin/bats test $(TEST_OPTS)
 
 deps/ellipsis:
 	@mkdir -p deps
