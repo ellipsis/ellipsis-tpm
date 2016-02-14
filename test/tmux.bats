@@ -81,12 +81,6 @@ teardown() {
     [ "${lines[1]}" = "/tmp/ellipsis-tpm-test/conf_contents3.tmux" ]
 }
 
-@test "tmux.manual_expansion expands '~/' to '\$HOME/'" {
-    run tmux.manual_expansion '~/test'
-    [ "$status" -eq 0 ]
-    [ "$output" = "$HOME/test" ]
-}
-
 @test "tmux.get_conf_option returns config option values" {
     TPM_CONF="$TESTS_DIR/conf/conf.tmux"\
     run tmux.get_conf_option "@plugin"

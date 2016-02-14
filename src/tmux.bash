@@ -7,6 +7,7 @@
 ##############################################################################
 
 load vars "$TPM_SRC"
+load path
 
 ##############################################################################
 
@@ -58,7 +59,7 @@ tmux.conf_contents() {
 
     for file in "${files[@]}"
     do
-        file="$(tmux.manual_expansion "$file")"
+        file="$(path.expand "$file")"
         if [ -f "$file" ]; then
             cat "$file"
         fi
@@ -67,7 +68,7 @@ tmux.conf_contents() {
     # Only one level deep!
     if [ "$1" == "full" ]; then # also output content from sourced files
         for file in $(tmux.sourced_files); do
-            cat $(tmux.manual_expansion "$file") 2>/dev/null
+            cat $(path.expand "$file") 2>/dev/null
         done
     fi
 }
@@ -78,13 +79,6 @@ tmux.conf_contents() {
 tmux.sourced_files() {
     tmux.conf_contents |\
         awk '/^ *source(-file)? +/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $2 }'
-}
-
-##############################################################################
-
-# Expand path
-tmux.manual_expansion() {
-    echo "${1/\~/$HOME}"
 }
 
 ##############################################################################
