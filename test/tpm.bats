@@ -74,7 +74,6 @@ teardown() {
 @test "tpm.install installs plugins" {
     TPM_CONF="$TESTS_DIR/conf/install.tmux"\
     run tpm.install
-    echo "$output" >> testfile
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "Installing dot-test" ]
     [ -f $TPM_PLUGIN_PATH/dot-test/README.md ]
