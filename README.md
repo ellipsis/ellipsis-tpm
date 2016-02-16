@@ -13,6 +13,7 @@ can be used as replacement for [TPM][tpm].
 - No Tmux version restrictions!
 - Can be used without Tmux running.
 - Supports custom config file locations.
+- Supports branch based installs
 
 ### Install
 **Requirements:** [Ellipsis][ellipsis]
