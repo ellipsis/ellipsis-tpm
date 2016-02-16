@@ -147,6 +147,27 @@ tpm.install() {
         fi
     done
 }
+
+##############################################################################
+
+tpm.uninstall() {
+    for pkg in "$@"; do
+        msg.bold "$pkg"
+        if [[ ! "$(tpm.list_installed)" =~ "$pkg" ]]; then
+            msg.print "Not installed!"
+            continue
+        else
+            rm -rf "$TPM_PLUGIN_PATH/$pkg"
+
+            if [ "$?" -ne 0 ]; then
+                log.error "Could not uninstall $pkg"
+            else
+                log.ok "$pkg uninstalled"
+            fi
+        fi
+    done
+}
+
 ##############################################################################
 
 tpm.update() {

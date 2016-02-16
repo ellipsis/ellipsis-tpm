@@ -61,6 +61,9 @@ cli.run() {
         install|in)
             tpm.install "${@:2}"
             ;;
+        uninstall|remove|rm)
+            tpm.uninstall "${@:2}"
+            ;;
         update|up)
             tpm.update "${@:2}"
             ;;

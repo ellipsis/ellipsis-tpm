@@ -80,6 +80,14 @@ teardown() {
     [ -f $TPM_PLUGIN_PATH/dot-test2/README.md ]
 }
 
+@test "tpm.uninstall uninstalls plugins" {
+    run tpm.uninstall "p1"
+    [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "p1" ]
+    [ "${lines[1]}" = "[ ok ] p1 uninstalled" ]
+    [ ! -d $TPM_PLUGIN_PATH/p1 ]
+}
+
 @test "tpm.update updates plugins" {
     skip "No test implementation"
 }
