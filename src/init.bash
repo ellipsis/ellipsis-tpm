@@ -18,8 +18,8 @@ load() {
         # Mark this module as loaded, prevent infinite recursion, ya know...
         eval "$loaded=1"
 
-        local path=${2:-"$ELLIPSIS_PATH/src"}
-        source $path/$1.bash
+        local path="${2:-"$ELLIPSIS_PATH/src"}"
+        source "$path/$1.bash"
     fi
 }
 
