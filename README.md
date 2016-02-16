@@ -3,8 +3,8 @@ Tmux plugin manager
 
 **This project is in an alpha stage! Use at own risk!**
 
-Ellipsis-TPM is an [Ellipsis][ellipsis] extension to manage Tmux plugins. It can
-be used as replacement for [TPM][tpm].
+Ellipsis-TPM is an [Ellipsis][ellipsis] extension to manage Tmux plugins. It
+can be used as replacement for [TPM][tpm].
 
 ### Features
 - Easy plugin management.
@@ -17,12 +17,12 @@ be used as replacement for [TPM][tpm].
 ### Install
 **Requirements:** [Ellipsis][ellipsis]
 
-```shell
-    # With ellipsis installed
-    ellipsis install ellipsis-tpm
+```bash
+# With ellipsis installed
+$ ellipsis install ellipsis-tpm
 
-    # Without ellipsis installed
-    curl -Ls ellipsis.sh | PACKAGES='ellipsis-tpm' sh
+# Without ellipsis installed
+$ curl -Ls ellipsis.sh | PACKAGES='ellipsis-tpm' sh
 ```
 
 ### Usage
