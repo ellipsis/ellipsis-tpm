@@ -9,6 +9,7 @@
 
 load tmux "$TPM_SRC"
 load log "$TPM_SRC"
+load path
 
 ##############################################################################
 
@@ -18,11 +19,11 @@ TPM_CONF="${TPM_CONF:-"/etc/tmux.conf:~/.tmux.conf"}"
 
 # Keep compatibility with TPM
 local tmux_plugin_manager_path="$(tmux.get_conf_option "TMUX_PLUGIN_MANAGER_PATH" "$HOME/.tmux/plugins")"
-tmux_plugin_manager_path="${tmux_plugin_manager_path//~\//$HOME\/}"
+tmux_plugin_manager_path="$(path.expand "$tmux_plugin_manager_path")"
 
 local tpm_plugin_path="$(tmux.get_conf_option "@tpm_plugin_path" "$tmux_plugin_manager_path")"
 TPM_PLUGIN_PATH="${TPM_PLUGIN_PATH:-$tpm_plugin_path}"
-TPM_PLUGIN_PATH="${TPM_PLUGIN_PATH//~\//$HOME\/}"
+TPM_PLUGIN_PATH="$(path.expand "$TPM_PLUGIN_PATH")"
 
 # This shouldn't be necesary (extra protection if the above is altered)
 if [ -z "$TPM_PLUGIN_PATH" ]; then
