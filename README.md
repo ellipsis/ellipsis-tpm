@@ -63,7 +63,7 @@ Only testing a plugin? Run `ellipsis-tpm install <plugin_url>` to quickly instal
 it!
 
 #### Uninstalling plugins
-- Remove from your config file of comment out.
+- Remove from your config file or comment out.
 - Press `prefix + alt + u` or run `ellipsis-tpm clean` in your terminal
 
 Remove a specific plugin? Run `ellipsis-tpm uninstall <plugin_name>`.
@@ -74,7 +74,15 @@ Remove a specific plugin? Run `ellipsis-tpm uninstall <plugin_name>`.
 Update a specific plugin? Just run `ellipsis-tpm update <plugin_name>`
 
 #### Customization
-TODO
+
+Tmux vars          | Environment vars  | Default                       | Description
+-------------------|-------------------|-------------------------------|------------
+/                  | `TPM_CONF`        | `/etc/tmux.conf:~/.tmux.conf` | Tmux configuration file(s) (colon separated)
+`@tpm_plugin_path` | `TPM_PLUGIN_PATH` | `~/.tmux/plugins`             | Location where plugins are installed
+`@tpm_install_key` | `TPM_INSTALL_KEY` | `I`                           | Key to install plugins
+`@tpm_update_key`  | `TPM_UPDATE_KEY`  | `U`                           | Key to update plugins
+`@tpm_clean_key`   | `TPM_CLEAN_KEY`   | `M-u`                         | Key to clean plugins
+
 
 ### Development
 Pull requests welcome! New code should follow the [existing style][style-guide]
