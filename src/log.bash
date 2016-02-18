@@ -1,5 +1,5 @@
 ##############################################################################
-# @file msg.bash
+# @file log.bash
 # @date February, 2016
 # @author Z. Kelling <hi@zeekay.io>
 # @author G. Roggemans <g.roggemans@grog.be>
