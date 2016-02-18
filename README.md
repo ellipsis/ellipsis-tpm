@@ -75,13 +75,26 @@ Update a specific plugin? Just run `ellipsis-tpm update <plugin_name>`
 
 #### Customization
 
-Tmux vars          | Environment vars  | Default                       | Description
--------------------|-------------------|-------------------------------|------------
-/                  | `TPM_CONF`        | `/etc/tmux.conf:~/.tmux.conf` | Tmux configuration file(s) (colon separated)
-`@tpm_plugin_path` | `TPM_PLUGIN_PATH` | `~/.tmux/plugins`             | Location where plugins are installed
-`@tpm_install_key` | `TPM_INSTALL_KEY` | `I`                           | Key to install plugins
-`@tpm_update_key`  | `TPM_UPDATE_KEY`  | `U`                           | Key to update plugins
-`@tpm_clean_key`   | `TPM_CLEAN_KEY`   | `M-u`                         | Key to clean plugins
+There are several options wich can either be set in the tmux config file or
+with an environment variable. When both are set the environment variable will
+be used.
+
+env var          | tmux var           | Default                       | Description
+-----------------|--------------------|-------------------------------|------------
+`TPM_CONF`       |  /                 | `/etc/tmux.conf:~/.tmux.conf` | Tmux configuration files ( `:` separated)
+`TPM_PLUGIN_PATH`| `@tpm_plugin_path` | `~/.tmux/plugins`             | Location where plugins are installed
+`TPM_INSTALL_KEY`| `@tpm_install_key` | `I`                           | Key to install plugins
+`TPM_UPDATE_KEY` | `@tpm_update_key`  | `U`                           | Key to update plugins
+`TPM_CLEAN_KEY`  | `@tpm_clean_key`   | `M-u`                         | Key to clean plugins
+
+The original [TPM][tpm] variables are also supported:
+
+tmux var                   | Description
+---------------------------|------------
+`TMUX_PLUGIN_MANAGER_PATH` | Location where plugins are installed
+`@tpm-install`             | Install key
+`@tpm-update`              | Update key
+`@tpm-clean`               | Cleanup key
 
 
 ### Development
