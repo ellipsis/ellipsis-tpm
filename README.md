@@ -29,6 +29,20 @@ $ curl -Ls ellipsis.sh | PACKAGES='ellipsis-tpm' sh
 The `.ellipsis/bin` folder should be added to your path. If it isn't you will
 need to symlink `.ellipsis/bin/ellipsis-tpm` to a folder that is in your path.
 
+### Switching from [TPM][tpm]
+
+Make sure your using the `@plugin` notation, switch the initialization line in
+your tmux.conf and your good to go!
+
+```
+# Remove this
+set -g @plugin 'tmux-plugins/tpm'
+run '~/.tmux/plugins/tpm/tpm'
+
+# Add this
+run 'ellipsis-tpm run'
+```
+
 ### Usage
 
 Add your plugins in your `.tmux.conf` file.
