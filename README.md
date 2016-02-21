@@ -1,4 +1,4 @@
-# Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Latest tag][tag-image]][tag-url] [![Gitter chat][gitter-image]][gitter-url]
+# Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Latest tag][tag-image]][tag-url] [![Gitter chat][gitter-image]][gitter-url] [![Documentation status][docs-image]][docs-url]
 Tmux plugin manager
 
 Ellipsis-TPM is an [Ellipsis][ellipsis] extension to manage Tmux plugins. It
@@ -127,6 +127,8 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [tag-url]:      https://github.com/ellipsis/ellipsis-tpm/tags
 [gitter-image]: https://badges.gitter.im/ellipsis/ellipsis.svg
 [gitter-url]:   https://gitter.im/ellipsis/ellipsis
+[docs-image]:   https://readthedocs.org/projects/ellipsis-tpm/badge/?version=master
+[docs-url]:     http://ellipsis-tpm.readthedocs.org/en/master
 
 [ellipsis]:     https://github.com/ellipsis/ellipsis
 [tpm]:          https://github.com/tmux-plugins/tpm
