@@ -27,20 +27,6 @@ $ curl -Ls ellipsis.sh | PACKAGES='ellipsis-tpm' sh
 The `.ellipsis/bin` folder should be added to your path. If it isn't you will
 need to symlink `.ellipsis/bin/ellipsis-tpm` to a folder that is in your path.
 
-### Switching from [TPM][tpm]
-
-Make sure your using the `@plugin` notation, switch the initialization line in
-your tmux.conf and your good to go!
-
-```
-# Remove this
-set -g @plugin 'tmux-plugins/tpm'
-run '~/.tmux/plugins/tpm/tpm'
-
-# Add this
-run 'ellipsis-tpm run'
-```
-
 ### Usage
 
 Add your plugins in your `.tmux.conf` file.
@@ -89,8 +75,9 @@ Update a specific plugin? Just run `ellipsis-tpm update <plugin_name>`
 Please consult the [docs][docs-url] for more information.
 
 specific parts that could be off interest:
-- [Building plugins][docs-plugins]
 - [Switching from TPM][docs-tpm]
+- [Customization][docs-custom]
+- [Building plugins][docs-plugins]
 
 ### Development
 Pull requests welcome! New code should follow the [existing style][style-guide]
@@ -114,6 +101,7 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [docs-url]:     http://ellipsis-tpm.readthedocs.org/en/latest
 [docs-plugins]: http://ellipsis-tpm.readthedocs.org/en/latest/plugins
 [docs-tpm]:     http://ellipsis-tpm.readthedocs.org/en/latest/tpm
+[docs-custom]:  http://ellipsis-tpm.readthedocs.org/en/latest/usage/#customization
 
 [ellipsis]:     https://github.com/ellipsis/ellipsis
 [tpm]:          https://github.com/tmux-plugins/tpm
