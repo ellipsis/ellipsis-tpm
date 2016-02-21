@@ -64,7 +64,7 @@ run 'ellipsis-tpm run'
 ```
 
 After you modified your config file you can either source it again or run
-`ellipsis-tpm run` manually.
+`ellipsis-tpm run` manually in your terminal.
 
 #### Installing plugins
 - Add the plugins to your config file with `set -g @plugin '...'`
@@ -85,29 +85,12 @@ Remove a specific plugin? Run `ellipsis-tpm uninstall <plugin_name>`.
 
 Update a specific plugin? Just run `ellipsis-tpm update <plugin_name>`
 
-#### Customization
+### Docs
+Please consult the [docs][docs-url] for more information.
 
-There are several options wich can either be set in the tmux config file or
-with an environment variable. When both are set the environment variable will
-be used.
-
-env var          | tmux var           | Default                       | Description
------------------|--------------------|-------------------------------|------------
-`TPM_CONF`       |  /                 | `/etc/tmux.conf:~/.tmux.conf` | Tmux configuration files ( `:` separated)
-`TPM_PLUGIN_PATH`| `@tpm_plugin_path` | `~/.tmux/plugins`             | Location where plugins are installed
-`TPM_INSTALL_KEY`| `@tpm_install_key` | `I`                           | Key to install plugins
-`TPM_UPDATE_KEY` | `@tpm_update_key`  | `U`                           | Key to update plugins
-`TPM_CLEAN_KEY`  | `@tpm_clean_key`   | `M-u`                         | Key to clean plugins
-
-The original [TPM][tpm] variables are also supported:
-
-tmux var                   | Description
----------------------------|------------
-`TMUX_PLUGIN_MANAGER_PATH` | Location where plugins are installed
-`@tpm-install`             | Install key
-`@tpm-update`              | Update key
-`@tpm-clean`               | Cleanup key
-
+specific parts that could be off interest:
+- [Building plugins][docs-plugins]
+- [Switching from TPM][docs-tpm]
 
 ### Development
 Pull requests welcome! New code should follow the [existing style][style-guide]
@@ -115,10 +98,10 @@ Pull requests welcome! New code should follow the [existing style][style-guide]
 
 Suggest a feature or report a bug? Create an [issue][issues]!
 
-## Author
+### Author
 By [G. Roggemans][groggemans]
 
-## License
+### License
 Ellipsis-TPM is open-source software licensed under the [MIT license][mit-license].
 
 [travis-image]: https://img.shields.io/travis/ellipsis/ellipsis-tpm.svg
@@ -127,8 +110,10 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [tag-url]:      https://github.com/ellipsis/ellipsis-tpm/tags
 [gitter-image]: https://badges.gitter.im/ellipsis/ellipsis.svg
 [gitter-url]:   https://gitter.im/ellipsis/ellipsis
-[docs-image]:   https://readthedocs.org/projects/ellipsis-tpm/badge/?version=master
-[docs-url]:     http://ellipsis-tpm.readthedocs.org/en/master
+[docs-image]:   https://readthedocs.org/projects/ellipsis-tpm/badge/?version=latest
+[docs-url]:     http://ellipsis-tpm.readthedocs.org/en/latest
+[docs-plugins]: http://ellipsis-tpm.readthedocs.org/en/latest/plugins
+[docs-tpm]:     http://ellipsis-tpm.readthedocs.org/en/latest/tpm
 
 [ellipsis]:     https://github.com/ellipsis/ellipsis
 [tpm]:          https://github.com/tmux-plugins/tpm
