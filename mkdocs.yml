@@ -2,7 +2,7 @@
 site_name: Ellipsis-TPM
 
 # Docs directory
-docs_dir: ./
+docs_dir: docs
 
 # Docs page index
 pages:
