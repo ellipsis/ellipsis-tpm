@@ -1,4 +1,10 @@
+# Name
 site_name: Ellipsis-TPM
+
+# Docs directory
+docs_dir: ./
+
+# Docs page index
 pages:
   - Home: index.md
   - Install: install.md
@@ -6,4 +12,6 @@ pages:
   - Usage: usage.md
   - Writing plugins: plugins.md
   - About: about.md
+
+# Theme
 theme: readthedocs
