@@ -7,9 +7,9 @@
 ##############################################################################
 
 load msg "$TPM_SRC" # Use tmux aware msg functions
-load log "$TPM_SRC" # Use updated log functions
 load tpm "$TPM_SRC"
 load tmux "$TPM_SRC"
+load log
 
 ##############################################################################
 
