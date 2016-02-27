@@ -7,7 +7,7 @@ docs_dir: docs
 # Docs page index
 pages:
   - Home: index.md
-  - Install: install.md
+  - Installation: install.md
   - Switching from TPM: tpm.md
   - Usage: usage.md
   - Writing plugins: plugins.md

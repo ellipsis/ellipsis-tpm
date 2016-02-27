@@ -1,3 +1,5 @@
+<h1>Usage</h1>
+
 Add your plugins in your `.tmux.conf` file.
 
 ```

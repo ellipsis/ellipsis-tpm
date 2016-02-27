@@ -1,3 +1,5 @@
+<h1>Ellipsis-TPM</h1>
+
 Ellipsis-TPM is an [Ellipsis][ellipsis] extension to manage Tmux plugins. It
 can be used as replacement for [TPM][tpm].
 

@@ -1,3 +1,5 @@
+<h1>About</h1>
+
 ### Credits
 This project wasn't possible without the great work of [Z. Kelling][zkelling]
 on [Ellipsis][ellipsis], and [B. Sutic][bsutic] on [TPM][tpm].
