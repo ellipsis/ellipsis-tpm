@@ -1,4 +1,4 @@
-# Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Latest tag][tag-image]][tag-url] [![Documentation status][docs-image]][docs-url] [![Gitter chat][gitter-image]][gitter-url]
+# Ellipsis-TPM [![Build Status][travis-image]][travis-url] [![Documentation status][docs-image]][docs-url] [![Latest tag][tag-image]][tag-url] [![Gitter chat][gitter-image]][gitter-url]
 Tmux plugin manager
 
 Ellipsis-TPM is an [Ellipsis][ellipsis] extension to manage Tmux plugins. It
@@ -93,15 +93,16 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 
 [travis-image]: https://img.shields.io/travis/ellipsis/ellipsis-tpm.svg
 [travis-url]:   https://travis-ci.org/ellipsis/ellipsis-tpm
+[docs-image]:   https://readthedocs.org/projects/ellipsis-tpm/badge/?version=master
+[docs-url]:     http://ellipsis-tpm.readthedocs.org/en/master
 [tag-image]:    https://img.shields.io/github/tag/ellipsis/ellipsis-tpm.svg
 [tag-url]:      https://github.com/ellipsis/ellipsis-tpm/tags
 [gitter-image]: https://badges.gitter.im/ellipsis/ellipsis.svg
 [gitter-url]:   https://gitter.im/ellipsis/ellipsis
-[docs-image]:   https://readthedocs.org/projects/ellipsis-tpm/badge/?version=latest
-[docs-url]:     http://ellipsis-tpm.readthedocs.org/en/latest
-[docs-plugins]: http://ellipsis-tpm.readthedocs.org/en/latest/plugins
-[docs-tpm]:     http://ellipsis-tpm.readthedocs.org/en/latest/tpm
-[docs-custom]:  http://ellipsis-tpm.readthedocs.org/en/latest/usage/#customization
+
+[docs-plugins]: http://ellipsis-tpm.readthedocs.org/en/master/plugins
+[docs-tpm]:     http://ellipsis-tpm.readthedocs.org/en/master/tpm
+[docs-custom]:  http://ellipsis-tpm.readthedocs.org/en/master/usage/#customization
 
 [ellipsis]:     https://github.com/ellipsis/ellipsis
 [tpm]:          https://github.com/tmux-plugins/tpm
