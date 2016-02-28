@@ -8,6 +8,8 @@
 ##############################################################################
 
 export TESTS_DIR="$BATS_TEST_DIRNAME"
+export ELLIPSIS_PATH="$(cd $TESTS_DIR/../deps/ellipsis && pwd)"
+export ELLIPSIS_SRC="$ELLIPSIS_PATH/src"
 export TPM_PATH="$(cd $TESTS_DIR/.. && pwd)"
 export TPM_SRC="$TPM_PATH/src"
 export PATH="$TPM_PATH/bin:$PATH"

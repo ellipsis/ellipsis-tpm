@@ -9,18 +9,15 @@ tag:
 	@git tag v$(version)
 
 test: deps/bats deps/ellipsis
-	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
-		deps/bats/bin/bats test $(TEST_OPTS)
+	@deps/bats/bin/bats test $(TEST_OPTS)
 
 deps/ellipsis:
 	@mkdir -p deps
 	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
 		curl -Ls ellipsis.sh | sh
 
-
 deps/bats:
 	@mkdir -p deps
 	git clone --depth 1 git://github.com/sstephenson/bats.git deps/bats
-
 
 .PHONY: all tag test

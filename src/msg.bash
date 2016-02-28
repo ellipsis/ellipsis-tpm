@@ -10,11 +10,12 @@
 #
 ##############################################################################
 
-load tmux "$TPM_SRC"
+load tmux
 
-# Force loading the original functions, we only need to overwrite 'msg.print'
-__loaded_msg=''
-load msg
+##############################################################################
+
+# Source the original functions
+source "$ELLIPSIS_SRC/msg.bash"
 
 ##############################################################################
 

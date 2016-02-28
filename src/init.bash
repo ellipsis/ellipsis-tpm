@@ -18,16 +18,20 @@ load() {
         # Mark this module as loaded, prevent infinite recursion, ya know...
         eval "$loaded=1"
 
-        local path="${2:-"$ELLIPSIS_PATH/src"}"
-        source "$path/$1.bash"
+        # Load extension specific sources if possible
+        if [ -f "$TPM_SRC/$1.bash" ]; then
+            source "$TPM_SRC/$1.bash"
+        else
+            source "$ELLIPSIS_SRC/$1.bash"
+        fi
     fi
 }
 
 # Load version info.
-load version "$TPM_SRC"
+load version
 
 # Load variables and tmux options
-load vars "$TPM_SRC"
+load vars
 
 # Set flag that we've been sourced already.
 TPM_INIT=1

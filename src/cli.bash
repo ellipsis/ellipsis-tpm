@@ -6,10 +6,9 @@
 # @license MIT
 ##############################################################################
 
-load msg "$TPM_SRC" # Use tmux aware msg functions
-load tpm "$TPM_SRC"
-load tmux "$TPM_SRC"
-load log
+load msg
+load tpm
+load tmux
 
 ##############################################################################
 
