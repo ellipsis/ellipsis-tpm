@@ -6,6 +6,7 @@
 # @license MIT
 ##############################################################################
 
+load extension
 load msg
 load tpm
 load tmux
@@ -43,6 +44,13 @@ cli.version() {
 
 # run ellipsis-tpm
 cli.run() {
+    # Check if Ellipsis version is sufficient
+    if ! extension.is_compatible; then
+        log.fail "Ellipsis-TPM v$TPM_VERSION needs at least Ellipsis v$ELLIPSIS_VERSION_DEP"
+        msg.print "Please update Ellipsis!"
+        exit 1
+    fi
+
     case "$1" in
         tmux)
             tmux.or_fail
