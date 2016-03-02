@@ -8,8 +8,10 @@
 
 load extension
 load msg
+load log
 load tpm
 load tmux
+load git
 
 ##############################################################################
 
@@ -32,12 +34,12 @@ Usage: ellipsis-tpm <command>
 # prints ellipsis-tpm version
 cli.version() {
     local cwd="$(pwd)"
-    cd $TPM_PATH
+    cd "$TPM_PATH"
 
-    local sha1=$(git rev-parse --short HEAD)
+    local sha1="$(git.sha1)"
     msg.print "\033[1mv$TPM_VERSION\033[0m ($sha1)"
 
-    cd $cwd
+    cd "$cwd"
 }
 
 ##############################################################################
