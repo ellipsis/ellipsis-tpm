@@ -69,7 +69,7 @@ tmux.conf_contents() {
     # Only one level deep!
     if [ "$1" == "full" ]; then # also output content from sourced files
         for file in $(tmux.sourced_files); do
-            cat $(path.expand "$file") 2>/dev/null
+            cat "$(path.expand "$file")" 2>/dev/null
         done
     fi
 }

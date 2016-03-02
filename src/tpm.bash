@@ -15,19 +15,19 @@ load fs
 ##############################################################################
 
 tpm.list_installed_raw() {
-    if ! fs.folder_empty $TPM_PLUGIN_PATH; then
-        echo $TPM_PLUGIN_PATH/*
+    if ! fs.folder_empty "$TPM_PLUGIN_PATH"; then
+        echo "$TPM_PLUGIN_PATH"/*
     fi
 }
 
 tpm.list_installed() {
-    tpm.list_clean $(tpm.list_installed_raw)
+    tpm.list_clean "$(tpm.list_installed_raw)"
 }
 
 ##############################################################################
 
 tpm.list_plugins() {
-    tpm.list_clean $(tmux.list_plugins)
+    tpm.list_clean "$(tmux.list_plugins)"
 }
 
 ##############################################################################
@@ -41,23 +41,23 @@ tpm.list_clean() {
 
         if [ -e "$PKG_RAW" ]; then
             PKG_URL="$PKG_RAW"
-            PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+            PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
         else
             case "$PKG_RAW" in
                 ssh://git)
                     # Set correct url by restoring first '@' coming from
                     # 'ssh://git@...'
                     PKG_URL="${parts[0]}@${parts[1]}"
-                    PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+                    PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
                 ;;
                 # 'ssh:*' still included because user could be handled in
                 # ~/.ssh/config
                 http:*|https:*|git:*|ssh:*)
                     PKG_URL="$PKG_RAW"
-                    PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+                    PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
                 ;;
                 */*)
-                    PKG_NAME="$(pkg.name_from_shorthand $PKG_RAW)"
+                    PKG_NAME="$(pkg.name_from_shorthand "$PKG_RAW")"
                 ;;
                 *)
                     PKG_NAME="$PKG_RAW"
@@ -82,7 +82,7 @@ tpm.run() {
     for plugin in $(tpm.list_installed_raw); do
         for tmux_file in "$plugin"/*.tmux; do
             [ -f "$tmux_file" ] || continue
-            $tmux_file >/dev/null 2>&1
+            "$tmux_file" >/dev/null 2>&1
         done
     done
 }
@@ -99,14 +99,14 @@ tpm.install() {
 
         if [ -e "$PKG_RAW" ]; then
             PKG_URL="$PKG_RAW"
-            PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+            PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
         else
             case "$PKG_RAW" in
                 ssh://git)
                     # Set correct url by restoring first '@' coming from
                     # 'ssh://git@...'
                     PKG_URL="${parts[0]}@${parts[1]}"
-                    PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+                    PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
                     # Set correct branch
                     PKG_BRANCH="${parts[2]}"
                 ;;
@@ -114,11 +114,11 @@ tpm.install() {
                 # ~/.ssh/config
                 http:*|https:*|git:*|ssh:*)
                     PKG_URL="$PKG_RAW"
-                    PKG_NAME="$(pkg.name_from_url $PKG_URL)"
+                    PKG_NAME="$(pkg.name_from_url "$PKG_URL")"
                 ;;
                 */*)
-                    PKG_USER="$(pkg.user_from_shorthand $PKG_RAW)"
-                    PKG_NAME="$(pkg.name_from_shorthand $PKG_RAW)"
+                    PKG_USER="$(pkg.user_from_shorthand "$PKG_RAW")"
+                    PKG_NAME="$(pkg.name_from_shorthand "$PKG_RAW")"
                     PKG_URL="https://github.com/$PKG_USER/$PKG_NAME"
                 ;;
                 *)
