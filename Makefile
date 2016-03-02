@@ -8,7 +8,7 @@ tag:
 	@git commit -m v$(version)
 	@git tag v$(version)
 
-test: deps/bats deps/ellipsis
+test: deps/bats/bin/bats deps/ellipsis
 	@deps/bats/bin/bats test $(TEST_OPTS)
 
 deps/ellipsis:
@@ -16,7 +16,7 @@ deps/ellipsis:
 	@export ELLIPSIS_PATH="$$(pwd)/deps/ellipsis";\
 		curl -Ls ellipsis.sh | sh
 
-deps/bats:
+deps/bats/bin/bats:
 	@mkdir -p deps
 	git clone --depth 1 git://github.com/sstephenson/bats.git deps/bats
 
