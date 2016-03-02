@@ -15,7 +15,6 @@ load tpm "$TPM_SRC"
 setup() {
     mkdir -p /tmp/ellipsis-tpm-test
     TPM_TMP="/tmp/ellipsis-tpm-test"
-    export ELLIPSIS_LOGFILE=/tmp/ellipsis-tpm-test/log
 
     ln -s $TESTS_DIR/conf/* /tmp/ellipsis-tpm-test
 

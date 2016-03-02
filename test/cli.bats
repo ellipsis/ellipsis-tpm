@@ -12,17 +12,6 @@ load cli "$TPM_SRC"
 
 ##############################################################################
 
-setup() {
-    mkdir -p /tmp/ellipsis-tpm-test
-    export ELLIPSIS_LOGFILE=/tmp/ellipsis-tpm-test/log
-}
-
-teardown() {
-    rm -rf /tmp/ellipsis-tpm-test
-}
-
-##############################################################################
-
 @test "cli.run without command prints usage" {
     run ellipsis-tpm
     [ "$status" -eq 1 ]

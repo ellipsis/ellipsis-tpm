@@ -14,6 +14,8 @@ export TPM_PATH="$(cd $TESTS_DIR/.. && pwd)"
 export TPM_SRC="$TPM_PATH/src"
 export PATH="$TPM_PATH/bin:$PATH"
 
+export ELLIPSIS_LOGFILE="/dev/null"
+
 ##############################################################################
 
 # Initialize ellipsis-tpm, which replaces bat's `load` function with ours.

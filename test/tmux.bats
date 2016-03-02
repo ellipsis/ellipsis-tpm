@@ -14,7 +14,6 @@ load tmux "$TPM_SRC"
 
 setup() {
     mkdir -p /tmp/ellipsis-tpm-test
-    export ELLIPSIS_LOGFILE=/tmp/ellipsis-tpm-test/log
     ln -s $TESTS_DIR/conf/* /tmp/ellipsis-tpm-test
 }
 
