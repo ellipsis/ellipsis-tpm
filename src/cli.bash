@@ -25,6 +25,7 @@ Usage: ellipsis-tpm <command>
 
   Commands:
     install    install new plugin
+    uninstall  uninstall plugin
     update     update installed plugin
     clean      cleanup plugins"
 }
