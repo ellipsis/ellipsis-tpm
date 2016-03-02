@@ -13,6 +13,9 @@ language: bash
 script: make test
 env:
   - TEST_OPTS=--tap
+cache:
+  directories:
+    - deps
 notifications:
   email:
     on_success: change
