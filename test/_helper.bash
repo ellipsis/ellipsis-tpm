@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ##############################################################################
-# @file init.bash
+# @file _helper.bash
 # @date January, 2016
 # @author G. Roggemans <g.roggemans@grog.be>
 # @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
@@ -25,8 +25,6 @@ load ../src/init
 
 load vars
 load extension
-
-##############################################################################
 
 # Updated ellipsis version if not sufficient (make can't auto update)
 if ! extension.is_compatible; then
