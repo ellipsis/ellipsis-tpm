@@ -35,8 +35,7 @@ TPM_SRC="$TPM_PATH/src"
 # Provides load function and global vars
 source "$TPM_SRC/init.bash"
 
-load cli "$TPM_SRC"
-cli.run $@
-exit $?
+load cli
+cli.run "$@"
 
 ##############################################################################
