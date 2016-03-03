@@ -8,68 +8,68 @@
 ##############################################################################
 
 load _helper
-load cli "$TPM_SRC"
+load cli
 
 ##############################################################################
 
 @test "cli.run without command prints usage" {
-    run ellipsis-tpm
+    run cli.run
     [ "$status" -eq 1 ]
     [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
 @test "cli.run with invalid command prints usage" {
-    run ellipsis-tpm invalid_command
+    run cli.run invalid_command
     [ "$status" -eq 1 ]
     [ "${lines[1]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
 @test "cli.run help prints usage" {
-    run ellipsis-tpm help
+    run cli.run help
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
 @test "cli.run --help prints usage" {
-    run ellipsis-tpm --help
+    run cli.run --help
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
 @test "cli.run -h prints usage" {
-    run ellipsis-tpm -h
+    run cli.run -h
     [ "$status" -eq 0 ]
     [ "${lines[0]}" = "Usage: ellipsis-tpm <command>" ]
 }
 
 @test "cli.run version prints version" {
-    run ellipsis-tpm version
+    run cli.run version
     [ "$status" -eq 0 ]
     [ $(expr "$output" : "v[0-9][0-9.]*") -ne 0 ]
 }
 
 @test "cli.run --version prints version" {
-    run ellipsis-tpm --version
+    run cli.run --version
     [ "$status" -eq 0 ]
     [ $(expr "$output" : "v[0-9][0-9.]*") -ne 0 ]
 }
 
 @test "cli.run -v prints version" {
-    run ellipsis-tpm -v
+    run cli.run -v
     [ "$status" -eq 0 ]
     [ $(expr "$output" : "v[0-9][0-9.]*") -ne 0 ]
 }
 
 @test "cli.run tmux fails if tmux is not running" {
     TMUX=""\
-    run ellipsis-tpm tmux
+    run cli.run tmux
     [ "$status" -eq 1 ]
     [ "${lines[0]}" = "[FAIL] Tmux not running!" ]
 }
 
 @test "cli.run run fails if tmux is not running" {
     TMUX=""\
-    run ellipsis-tpm run
+    run cli.run run
     [ "$status" -eq 1 ]
     [ "${lines[0]}" = "[FAIL] Tmux not running!" ]
 }
