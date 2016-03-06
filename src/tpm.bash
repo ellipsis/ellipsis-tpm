@@ -74,9 +74,9 @@ tpm.run() {
     tmux.or_fail
 
     # Set key bindings
-    tmux.set_key_binding "$TPM_INSTALL_KEY" "$TPM_BIN tmux install"
-    tmux.set_key_binding "$TPM_UPDATE_KEY" "$TPM_BIN tmux update"
-    tmux.set_key_binding "$TPM_CLEAN_KEY" "$TPM_BIN tmux clean"
+    tmux.set_key_binding "$TPM_INSTALL_KEY" "$ELLIPSIS_XBIN tmux install"
+    tmux.set_key_binding "$TPM_UPDATE_KEY" "$ELLIPSIS_XBIN tmux update"
+    tmux.set_key_binding "$TPM_CLEAN_KEY" "$ELLIPSIS_XBIN tmux clean"
 
     # source plugins
     for plugin in $(tpm.list_installed_raw); do

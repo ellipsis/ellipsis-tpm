@@ -7,7 +7,14 @@
 # @license MIT
 ##############################################################################
 
-TPM_BIN="${BASH_SOURCE[0]}"
+# Provide extension name
+ELLIPSIS_XNAME="TPM"
+ELLIPSIS_XNAME_U="$(tr '[a-z]' '[A-Z]' <<< "$ELLIPSIS_XNAME")"
+ELLIPSIS_XNAME_L="$(tr '[A-Z]' '[a-z]' <<< "$ELLIPSIS_XNAME")"
+
+##############################################################################
+
+ELLIPSIS_XBIN="${BASH_SOURCE[0]}"
 
 # Unlink script location
 loopcount=0
@@ -17,25 +24,27 @@ do
     let loopcount=loopcount+1
 
     # If still a link, unlink, else break the loop
-    if [ -L "$TPM_BIN" ]; then
-        TPM_BIN="$(readlink "$TPM_BIN")"
+    if [ -L "$ELLIPSIS_XBIN" ]; then
+        ELLIPSIS_XBIN="$(readlink "$ELLIPSIS_XBIN")"
     else
         break
     fi
 done
 
-# Set PATH vars
-ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$TPM_BIN")/../../.." && pwd)}"
+# Set path vars
+ELLIPSIS_PATH="${ELLIPSIS_PATH:-$(cd "$(dirname "$ELLIPSIS_XBIN")/../../.." && pwd)}"
 ELLIPSIS_SRC="$ELLIPSIS_PATH/src"
-TPM_PATH="$(cd "$(dirname "$TPM_BIN")/.." && pwd)"
-TPM_SRC="$TPM_PATH/src"
+ELLIPSIS_XPATH="$(cd "$(dirname "$ELLIPSIS_XBIN")/.." && pwd)"
+ELLIPSIS_XSRC="$ELLIPSIS_XPATH/src"
 
 ##############################################################################
 
 # Provides load function and global vars
-source "$TPM_SRC/init.bash"
+source "$ELLIPSIS_SRC/init.bash"
 
+load vars
 load cli
+
 cli.run "$@"
 
 ##############################################################################

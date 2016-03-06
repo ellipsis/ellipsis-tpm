@@ -10,12 +10,12 @@
 #
 ##############################################################################
 
-load tmux
+# Source the original functions
+source "$ELLIPSIS_SRC/msg.bash"
 
 ##############################################################################
 
-# Source the original functions
-source "$ELLIPSIS_SRC/msg.bash"
+load tmux
 
 ##############################################################################
 
@@ -23,9 +23,9 @@ msg.print() {
     if [ -n "$TPM_TMUX_ECHO" ]; then
         tmux.echo "$(msg.log "$@")"
     elif [ -t 1 ] || [ -n "$ELLIPSIS_FORCE_COLOR" ]; then
-        echo -e "$@"
+        echo -e "$(msg.tabs)$@"
     else
-        msg.log "$@"
+        msg.log "$(msg.tabs)$@"
     fi
 }
 

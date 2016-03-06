@@ -35,10 +35,10 @@ Usage: ellipsis-tpm <command>
 # prints ellipsis-tpm version
 cli.version() {
     local cwd="$(pwd)"
-    cd "$TPM_PATH"
+    cd "$ELLIPSIS_XPATH"
 
     local sha1="$(git.sha1)"
-    msg.print "\033[1mv$TPM_VERSION\033[0m ($sha1)"
+    msg.print "\033[1mv$ELLIPSIS_XVERSION\033[0m ($sha1)"
 
     cd "$cwd"
 }
@@ -49,7 +49,7 @@ cli.version() {
 cli.run() {
     # Check if Ellipsis version is sufficient
     if ! extension.is_compatible; then
-        log.fail "Ellipsis-TPM v$TPM_VERSION needs at least Ellipsis v$ELLIPSIS_VERSION_DEP"
+        log.fail "Ellipsis-TPM v$ELLIPSIS_XVERSION needs at least Ellipsis v$ELLIPSIS_VERSION_DEP"
         msg.print "Please update Ellipsis!"
         exit 1
     fi

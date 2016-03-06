@@ -32,6 +32,19 @@ tmux.echo() {
     [ "${lines[0]}" = "Test print message (colored)" ]
 }
 
+@test "msg.print shows message indented (nested)" {
+    # 1 level, 4 spaces
+    ELLIPSIS_LVL=2\
+    run msg.print "Test print message indented"
+    [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "    Test print message indented" ]
+    # 2 levels, 8 spaces
+    ELLIPSIS_LVL=3\
+    run msg.print "Test print message indented"
+    [ "$status" -eq 0 ]
+    [ "${lines[0]}" = "        Test print message indented" ]
+}
+
 @test "msg.print shows message using tmux echo when TPM_TMUX_ECHO is set" {
     TPM_TMUX_ECHO=1\
     run msg.print "Test print message"
