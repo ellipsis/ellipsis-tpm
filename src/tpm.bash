@@ -211,7 +211,7 @@ tpm.clean() {
     for pkg in ${@:-$(tpm.list_installed)}; do
         msg.bold "$pkg"
         if [[ "$(tpm.list_plugins)" =~ "$pkg" ]]; then
-            msg.print "Ok!"
+            msg.print "Nothing to be done!"
             continue
         else
             rm -rf "$TPM_PLUGIN_PATH/$pkg"
