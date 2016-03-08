@@ -15,5 +15,5 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [bsutic]:       https://github.com/bruno-
 [tpm]:          https://github.com/tmux-plugins/tpm
 
-[contrubutors]: https://github.com/ellipsis/ellipsis-tpm/graphs/contributors
+[contributors]: https://github.com/ellipsis/ellipsis-tpm/graphs/contributors
 [mit-license]:  http://opensource.org/licenses/MIT
