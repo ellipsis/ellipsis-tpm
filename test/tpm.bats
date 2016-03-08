@@ -102,7 +102,7 @@ teardown() {
     [ "${lines[3]}" = "[ ok ] p2 uninstalled" ]
     [ ! -d $TPM_PLUGIN_PATH/p2 ]
     [ "${lines[4]}" = "p3" ]
-    [ "${lines[5]}" = "Ok!" ]
+    [ "${lines[5]}" = "Nothing to be done!" ]
     [ -d $TPM_PLUGIN_PATH/p3 ]
 }
 
