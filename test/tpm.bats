@@ -1,10 +1,9 @@
 #!/usr/bin/env bats
 ##############################################################################
-# @file tpm.bats
-# @date February, 2016
-# @author G. Roggemans <g.roggemans@grog.be>
-# @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
-# @license MIT
+# tpm.bats
+#
+# Tests for the main TPM functions
+#
 ##############################################################################
 
 load _helper

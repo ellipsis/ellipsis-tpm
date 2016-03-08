@@ -1,10 +1,4 @@
-##############################################################################
-# @file msg.bash
-# @date February, 2016
-# @author G. Roggemans <g.roggemans@grog.be>
-# @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
-# @license MIT
-##############################################################################
+# msg.bash
 #
 # Overwrite msg functions to use tmux echo
 #

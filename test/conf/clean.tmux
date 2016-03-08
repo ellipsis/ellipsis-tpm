@@ -1,9 +1,7 @@
-##############################################################################
-# @file clean.tmux
-# @date February, 2016
-# @author G. Roggemans <g.roggemans@grog.be>
-# @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
-# @license MIT
+# clean.tmux
+#
+# Tests helper config
+#
 ##############################################################################
 
     set -g @plugin 'ellipsis/p3'

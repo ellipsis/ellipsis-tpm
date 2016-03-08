@@ -85,8 +85,8 @@ Pull requests welcome! New code should follow the [existing style][style-guide]
 
 Suggest a feature or report a bug? Create an [issue][issues]!
 
-### Author
-By [G. Roggemans][groggemans]
+### Author(s)
+You can thank all [these][contributors] people for all there hard work.
 
 ### License
 Ellipsis-TPM is open-source software licensed under the [MIT license][mit-license].
@@ -112,5 +112,5 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [bats]:         https://github.com/sstephenson/bats
 [issues]:       http://github.com/ellipsis/ellipsis-tpm/issues
 
-[groggemans]:   https://github.com/groggemans
+[contributors]: https://github.com/ellipsis/ellipsis-tpm/graphs/contributors
 [mit-license]:  http://opensource.org/licenses/MIT

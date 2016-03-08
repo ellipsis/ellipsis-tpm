@@ -4,8 +4,8 @@
 This project wasn't possible without the great work of [Z. Kelling][zkelling]
 on [Ellipsis][ellipsis], and [B. Sutic][bsutic] on [TPM][tpm].
 
-### Author
-[G. Roggemans][groggemans]
+### Author(s)
+You can thank all [these][contributors] people for all there hard work.
 
 ### License
 Ellipsis-TPM is open-source software licensed under the [MIT license][mit-license].
@@ -14,5 +14,6 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [ellipsis]:     https://github.com/ellipsis/ellipsis
 [bsutic]:       https://github.com/bruno-
 [tpm]:          https://github.com/tmux-plugins/tpm
-[groggemans]:   https://github.com/groggemans
+
+[contrubutors]: https://github.com/ellipsis/ellipsis-tpm/graphs/contributors
 [mit-license]:  http://opensource.org/licenses/MIT
