@@ -25,7 +25,8 @@ Usage: ellipsis-tpm <command>
     install    install new plugin
     uninstall  uninstall plugin
     update     update installed plugin
-    clean      cleanup plugins"
+    clean      cleanup plugins
+    installed  list installed plugins"
 }
 
 ##############################################################################
@@ -76,6 +77,9 @@ cli.run() {
             ;;
         clean)
             tpm.clean
+            ;;
+        installed|list|ls)
+            tpm.installed
             ;;
         help|--help|-h)
             cli.usage

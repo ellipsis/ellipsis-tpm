@@ -105,5 +105,13 @@ teardown() {
     [ -d $TPM_PLUGIN_PATH/p3 ]
 }
 
+@test "tpm.installed lists installed plugins" {
+    run tpm.installed
+    [ "$status" -eq 0 ]
+    [ "$(grep -c "^p1" <<< "$output")" -ne 0 ]
+    [ "$(grep -c "^p2" <<< "$output")" -ne 0 ]
+    [ "$(grep -c "^p3" <<< "$output")" -ne 0 ]
+}
+
 ##############################################################################
 

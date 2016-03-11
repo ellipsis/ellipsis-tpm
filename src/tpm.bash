@@ -9,6 +9,7 @@ load msg
 load log
 load pkg
 load fs
+load git
 
 ##############################################################################
 
@@ -220,6 +221,32 @@ tpm.clean() {
                 log.ok "$pkg uninstalled"
             fi
         fi
+    done
+}
+
+##############################################################################
+
+tpm.installed() {
+    if utils.cmd_exists column; then
+        tpm.print_installed | column -t -s $'\t'
+    else
+        tpm.print_installed
+    fi
+}
+
+##############################################################################
+
+tpm.print_installed() {
+    for pkg in $(tpm.list_installed); do
+        local cwd="$(pwd)"
+        cd "$TPM_PLUGIN_PATH/$pkg"
+
+        local sha1="$(git.sha1)"
+        local last_updated="$(git.last_updated)"
+
+        msg.print "\033[1m$pkg\033[0m\t$sha1\t(updated $last_updated)"
+
+        cd "$cwd"
     done
 }
 
