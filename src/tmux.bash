@@ -99,7 +99,7 @@ tmux.get_conf_option() {
         exit 1
     fi
 
-    local awk_opt='/^ *set(-option)? +-g +'"$option"'/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
+    local awk_opt='/^[ \t]*set(-option)? +-g +'"$option"'/ { gsub(/'\''/,""); gsub(/'\"'/,""); print $4 }'
     local option_value="$(tmux.conf_contents "full" | awk "$awk_opt")"
 
     if [ -z "$option_value" ]; then
