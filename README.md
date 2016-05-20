@@ -108,7 +108,7 @@ Ellipsis-TPM is open-source software licensed under the [MIT license][mit-licens
 [tpm]:          https://github.com/tmux-plugins/tpm
 [tmux-plugins]: https://github.com/tmux-plugins
 
-[style-guide]:  https://google-styleguide.googlecode.com/svn/trunk/shell.xml
+[style-guide]:  https://google.github.io/styleguide/shell.xml
 [bats]:         https://github.com/sstephenson/bats
 [issues]:       http://github.com/ellipsis/ellipsis-tpm/issues
 
